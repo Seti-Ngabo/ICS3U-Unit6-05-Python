@@ -12,9 +12,9 @@ def marks_average(the_marks, counter):
     sub_total = 0
     for one_mark in the_marks:
         sub_total = sub_total + one_mark
-    the_final_answer = sub_total / numbers
+    final_total = sub_total / numbers
 
-    return the_final_answer
+    return final_total
 
 
 def main():
