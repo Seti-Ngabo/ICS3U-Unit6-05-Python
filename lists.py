@@ -14,8 +14,8 @@ def marks_average(the_marks):
         final_total += one_mark
     final_total = final_total / len(the_marks)
 
-    number_float = final_total + 0.5
-    final_total = int(number_float)
+    my_number = final_total + 0.5
+    final_total = int(my_number)
 
     return final_total
 
