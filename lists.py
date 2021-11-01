@@ -5,47 +5,49 @@
 # This program finds the average percentage
 
 
-def marks_average(the_marks, counter):
-    # this function creates a list
+def marks_average(the_marks):
+    # This function creates a list
+    final_total = 0
 
-    numbers = counter - 1
-    sub_total = 0
+    # process
     for one_mark in the_marks:
-        sub_total = sub_total + one_mark
-    final_total = sub_total / numbers
+        final_total += one_mark
+    final_total = final_total / len(the_marks)
+
+    number_float = final_total + 0.5
+    final_total = int(number_float)
 
     return final_total
 
 
 def main():
-    # this function accepts a list
+    # This function accepts a list
+    my_list = []
+    user_input_int = None
 
-    the_marks = []
-    counter = 0
-
+    # heading
     print("Please enter 1 mark at a time. Enter -1 to end.")
     print("")
 
-    while True:
-        user_number = input("What is your mark? (as %): ")
-        counter = counter + 1
+    while user_input_int != -1:
+        # input
+        user_input_str = input("What is your mark? (as %): ")
+
         try:
-            my_mark = int(user_number)
-            if my_mark == -1:
-                break
-            elif my_mark < 0 or my_mark > 100:
-                print("\nPlease enter a mark between 0 - 100.")
-                print("\nDone.")
-                exit()
-            the_marks.append(my_mark)
+            user_input_int = int(user_input_str)
+            my_list.append(user_input_int)
 
-        except (Exception):
+        except Exception:
             print("\nInvalid input, try again.")
-            print("\nDone.")
-            exit()
 
-    final_answer = marks_average(the_marks, counter)
-    print("\nThe average is {0}% ".format(final_answer))
+    # remove -1
+    my_list.pop()
+
+    # call functions
+    final_answer = marks_average(my_list)
+
+    # output
+    print("\nThe average is: {}%".format(final_answer))
 
     print("\nDone.")
 
